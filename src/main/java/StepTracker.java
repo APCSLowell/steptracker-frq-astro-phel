@@ -3,6 +3,7 @@ public class StepTracker{
  /* to be implemented here */
  private int minSteps, totalSteps;
  private int totalDays, actDays;
+
  public StepTracker(int goal){
   minSteps = goal;
   totalSteps = 0;
@@ -10,14 +11,18 @@ public class StepTracker{
   actDays = 0;
  }
  public void addDailySteps(int steps){
-  totalSteps+=steps;
-  if(steps > minSteps)
-   activeDays++;
+  totalSteps += steps;
+  totalDays++;
+  if(steps >= minSteps)
+   actDays++;
  }
  public int activeDays(){
-  return activeDays;
+  return actDays;
  }
  public double averageSteps(){
-  return totalSteps/activeDays;
+  if(totalDays == 0)
+   return 0.0;
+  else
+   return (double)totalSteps/totalDays;
  }
-} 
+}
